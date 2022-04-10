@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 
 # INGRESO - parámetros
 w0 = 2*np.pi/12
-fx = lambda n: np.cos(w0*n)
+fx = lambda n: np.sin(w0*n)
 n0 = 0
-m = 20
+m = 40
 
 # PROCEDIMIENTO
 # vector n discreto [n,m)

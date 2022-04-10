@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # INGRESO parámetros
 
-#fx = lambda t: np.exp(abs(t))
+fx = lambda t: np.exp(abs(t))
 
 #ejemplo de funciones exponenciales 
 #funcion exponencial 
@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 #fx = lambda t: np.exp(-t)
 
 #funcion exponencial negativa
-fx = lambda t: -(np.exp(t))
+#fx = lambda t: -(np.exp(t))
 t0 = 0
 tn = 8
 

@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 w  = 1
 fx = lambda t: np.cos(w*t)
 t0 = 0
-tn = 2*np.pi
+tn = 6*np.pi
 n = 50
 
 # PROCEDIMIENTO
