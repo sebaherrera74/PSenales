@@ -18,12 +18,12 @@ senal=fx(t)
 factor = 5
 
 expande  = fx(t/factor)
-comprime = fx(factor*t)
+#comprime = fx(factor*t)
 
 # SALIDA
 plt.plot(t,senal,label='x(t)')
 plt.plot(t,expande,label='expande=x(t/factor)')
-plt.plot(t,comprime,label='comprime=x(t*factor)')
+#plt.plot(t,comprime,label='comprime=x(t*factor)')
 plt.axvline(0, color='gray')
 plt.axhline(0, color='gray')
 plt.xlabel('t')
