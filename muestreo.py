@@ -35,8 +35,8 @@ print("Número de bits de cuantificación: ", int(bits))
 #Probar divindo en 4 como la señal original pierde informacion 
 #Probar Multiplicando por cuatro la señal es la original
 
-x2=resample(x, int(len(x)*4))
-fs2=fs*4
+x2=resample(x, int(len(x)/16))
+fs2=fs/16
 
 plt.figure(figsize=(15,6))
 t=np.arange(len(x))/fs
@@ -48,7 +48,7 @@ plt.ylabel("Amplitud")
 plt.legend()
 plt.grid()
 plt.show()
-#print(x2)
+print(x2)
 amplitude = np.iinfo(np.int16).max
 
 data = x2/amplitude 
