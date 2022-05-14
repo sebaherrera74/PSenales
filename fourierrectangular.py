@@ -4,7 +4,7 @@ import scipy.fft
 
 
 # Señal coseno
-Fs = 100
+Fs = 100          #Cambiar los valores de la frecuencia y observar
 t = np.arange(0, 5, step=1./Fs)
 s = np.zeros_like(t)
 s[np.abs(t)<1] = 1
