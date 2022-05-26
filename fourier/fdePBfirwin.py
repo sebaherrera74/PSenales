@@ -49,8 +49,8 @@ Y = np.fft.fft(y,N)
 #Grafica en el tiempo de la entrada y de la salida 
 
 plt.figure(figsize=(15,5))
-plt.plot(x[0:2000], label="señal de entrada")
-plt.plot(y[0:2000], linewidth=3, label="señal de salida")
+#plt.plot(x[0:2000], label="señal de entrada")
+plt.plot(y[1000:5000], linewidth=3, label="señal de salida")
 plt.legend()
 plt.grid()
 plt.show() 
