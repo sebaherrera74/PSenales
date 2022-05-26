@@ -1,16 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy.fft
+import scipy.fft as fourier
 
 
 # Señal seno
-Fs = 40
+Fs = 100
+f0=30
 t = np.arange(0, 5, step=1./Fs)
-s = np.sin(2.0*np.pi*t*1)
+s = np.sin(2.0*np.pi*f0*t)
 # Se crean las frecuencias y se les hace el shift
-f = scipy.fft.fftshift(scipy.fft.fftfreq(n=len(s), d=1/Fs))
-S = scipy.fft.fftshift(scipy.fft.fft(s))
-print (f)
+f = fourier.fftshift(fourier.fftfreq(n=len(s), d=1/Fs))
+S = fourier.fftshift(fourier.fft(s))
+#print (f)
 #print(S)                          #Me imprime los valores conplejos de la transformada de Fourier
 
 plt.figure(figsize=(15,5))

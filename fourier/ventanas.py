@@ -9,10 +9,10 @@ T= 2
 t = np.arange(-T, T, step=1/Fs)
 sT = np.cos(2*np.pi*f0*t)
 f_os = sfft.rfftfreq(n=len(t)*10, d=1/Fs)
-rect = lambda N: np.ones(shape=(N,))
+#rect = lambda N: np.ones(shape=(N,))
 
 #[rect, tukey, cosine, blackman]:
-w = win.hamming(len(sT))            #Cambiar Tukey,cosine,blackman
+w = win.hanning(len(sT))            #Cambiar Tukey,cosine,blackman
 ST_os = np.absolute(sfft.rfft(sT*w, n=len(sT)*10))    
 
 #Graficas de las diferentes ventanas 
