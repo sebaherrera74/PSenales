@@ -100,6 +100,7 @@ ax.hlines(1,-fc,fc,color='g',lw=2.,linestyle='--')
 ax.set_xlabel(r"$f (Hz)$",fontsize=18)
 ax.set_ylabel(r"$|H2(\omega)| $",fontsize=18)
 
+'''
 ax=axs1[4]
 ax.plot((w1-np.pi)*fs/(2*np.pi),np.angle(np.fft.fftshift(Hh1)))
 ax.plot((w2-np.pi)*fs/(2*np.pi),np.angle(np.fft.fftshift(Hh2)))
@@ -107,6 +108,7 @@ ax.axis(xmax=fs/2,xmin=-fs/2)
 ax.set_xlabel(r"$f (Hz)$",fontsize=18)
 ax.set_ylabel(r"$\Theta(H(\omega)) $",fontsize=18)
 ax.legend(['H1', 'H2'])
+'''
 
 plt.grid()
 plt.show() 
@@ -121,19 +123,19 @@ Tmax=4
 t = np.arange(0,Tmax, 1/fs)
 x = np.sin(2*np.pi*300*t)+np.sin(2*np.pi*3000*t)  #Probar cambiando la frecuenciamas alta
 X = np.fft.fft(x,N)
+
 # salida del filtro
-y=np.convolve(x, h2)
-Y = np.fft.fft(y,N)
+y=np.convolve(x, h2) #Con una entrada senoidal definada antes, convolucionada con el filtro
+Y = np.fft.fft(y,N)  #Transfromada de fourier de esa salida 
 
 #Grafica en el tiempo de la entrada y de la salida 
 
 plt.figure(figsize=(15,5))
-plt.plot(x[0:500], label="señal de entrada")
+#plt.plot(x[0:500], label="señal de entrada")
 plt.plot(y[0:500], linewidth=3, label="señal de salida")
 plt.legend()
 plt.grid()
 plt.show() 
-
 
 fig,ax = plt.subplots()
 fig.set_size_inches((15,4))

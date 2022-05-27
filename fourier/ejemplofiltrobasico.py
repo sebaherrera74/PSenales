@@ -6,19 +6,19 @@ import scipy.signal as win
 
 
 f0=1
-Fs=32
+Fs=50
 Ts= 1/Fs
 n = np.arange(0, 40, step=2/Fs)
 x_n = np.cos(2*np.pi*f0*Ts*n)
 
-x_n_1 = np.cos(2*np.pi*f0*Ts*(n-2))     
+x_n_1 = np.cos(2*np.pi*f0*Ts*(n-1))     
 
 #Forma general del filtro es y(n)=x(n)+g*x(n-r)
 
 
 
 #y_n=x_n + x_n_1       #Filtro pasa bajo 
-y_n=x_n - x_n_1       #Filtro pasa alto    
+y_n=x_n - 2*x_n_1       #Filtro pasa alto    
 
 
 plt.figure(figsize=(15,5))
