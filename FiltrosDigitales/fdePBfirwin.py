@@ -27,7 +27,7 @@ Fs = 8000 # Frecuencia de muestreo
 L = 2000+1 # Largo del filtro
 N=512
 
-h = sig.firwin(L, fc, window='hamming', pass_zero=True, fs=Fs)
+h = sig.firwin(L, fc, window='hamming', pass_zero='lowpass', fs=Fs)
 freq, H = sig.freqz(h, fs=Fs)
 
 #plt.plot(range(len(h)), h)  

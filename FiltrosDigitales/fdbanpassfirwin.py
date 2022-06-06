@@ -9,8 +9,6 @@ fc1 =100 # Frecuencia de corte1
 fc2=500   #Frecuencia de corte 2 
 Fs =2500 # Frecuencia de muestreo
 L = 500+1 # Largo del filtro
-
-
 N=512
 
 h = sig.firwin(L, (fc1,fc2), window='hamming', pass_zero='bandpass', fs=Fs)
