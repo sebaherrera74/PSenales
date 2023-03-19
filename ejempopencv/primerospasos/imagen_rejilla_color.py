@@ -1,9 +1,9 @@
 import cv2
-import numpy
+import numpy as np
 
 ancho = alto = 300
 
-img = numpy.ones((alto,ancho, 3),numpy.uint8)*255
+img = np.ones((alto,ancho, 3),np.uint8)*255
 img[:] = (255, 255, 255)
 
 for x in range(ancho):
@@ -13,3 +13,5 @@ for x in range(ancho):
 
 cv2.imshow('Rejilla ', img)
 
+cv2.waitKey(0)
+cv2.destroyAllWindows()

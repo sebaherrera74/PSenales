@@ -10,6 +10,8 @@ for x in range(ancho):
         if x%50 == 0 or  y%50 == 0:
             img[y, x] = 0
 
-cv2.imwrite('../imagenes/rejilla.jpg', img)
+cv2.imwrite('rejilla.jpg', img)
 print("Imagen almacenada")
 
+cv2.waitKey(0)
+cv2.destroyAllWindows()

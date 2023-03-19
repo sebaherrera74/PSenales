@@ -12,3 +12,5 @@ for x in range(ancho):
 
 cv2.imshow('Rejilla ', img)
 
+cv2.waitKey(0)
+cv2.destroyAllWindows()
