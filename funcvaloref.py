@@ -17,8 +17,17 @@ def doblar_valor(numero):
 def doblar_valores(numeros):
     for i,n in enumerate(numeros):
         numeros[i] = numeros[i]*2
+    return n
+
+
+
 
 ns = [10,50,100]
-doblar_valores(ns)
+nf=[1,5,10,15,20,25,30,40]
+a=doblar_valores(ns)
+b=doblar_valores(nf)
 print(ns)
+print(a)  
 
+print(nf)
+print(b)   

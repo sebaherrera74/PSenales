@@ -1,5 +1,18 @@
 import numpy as np
 
+''' La librería Numpy
+NumPy es una librería de Python especializada en el cálculo numérico y el 
+análisis de datos, especialmente para un gran volumen de datos.
+
+Incorpora una nueva clase de objetos llamados arrays que permite representar 
+colecciones de datos de un mismo tipo en varias dimensiones, y funciones muy 
+eficientes para su manipulación '''
+
+
+
+
+
+
 #sample_list = [1.0, 2.0, 3.0]
 
 #a=np.array(sample_list)
