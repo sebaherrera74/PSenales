@@ -14,18 +14,20 @@ n = 50
 # vector de tiempo
 dt = (tn-t0)/n
 ti = np.arange(t0,tn,dt)
-
+print(ti)
+print(ti.size)
 # señal
+
 senal = fx(ti)
 
 
 # SALIDA
 
-np.set_printoptions(precision = 4)
-print('tiempo: ')
-print(ti)
-print('señal: x(t) ')
-print(senal)
+#np.set_printoptions(precision = 4)
+#print('tiempo: ')
+#print(ti)
+#print('señal: x(t) ')
+#print(senal)
 
 # Gráfica
 plt.plot(ti,senal)

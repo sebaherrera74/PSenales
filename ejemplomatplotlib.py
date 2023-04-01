@@ -1,17 +1,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x=np.arange(1,20,1)
+#x=np.arange(1,20,50)
 #print(x)
-y=x*x
-
+#y=x+500
+#print(y)
 #plt.figure(1,figsize=(6,4.5))  #Tamaño del grafico
  
-plt.plot(x,y,'blue',marker="o")                  #hasta aqui no me grafica nada si no pomgo show 
-plt.show()
+#plt.plot(x,y,'red',marker="o")                  #hasta aqui no me grafica nada si no pomgo show 
+#plt.show()
 
 #genera una señal ruidosa
-#y1=np.random.randn(50)
+#y1=0.01*(np.random.randn(100))
 #print(y1)
 #plt.plot(y1) 
 #plt.show()
@@ -28,22 +28,21 @@ plt.show()
     ":" o "dotted": línea de puntos
     "None", " " o "": no muestra nada.
 
+'''
 
 
 x = np.arange(0,100,0.01)
 y1 = np.cos(2*np.pi*10*x)
-y2 = np.sin(x)
+y2 = 5*np.sin(x)
 
 
-plt.plot(x,y1,linewidth=3,color=(0.2,0.1,0.4))
+#plt.plot(x,y1)
 
-plt.plot(x,y2,'o',linewidth=2,color='g')
-plt.grid()
-plt.axis('equal')
+plt.plot(x,y2)
 plt.xlabel('x')
 plt.ylabel('y')
 plt.title('Lab DLS')
 plt.show()
-'''
+
 
 # https://interactivechaos.com/es/manual/tutorial-de-matplotlib/la-funcion-plot-estilo-oo 

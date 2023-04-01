@@ -12,10 +12,10 @@ dt = 0.1
 
 # PROCEDIMIENTO
 t = np.arange(a, b, dt)
-u0 = u(t-5)
+u0 = u(t+5)
 
 # SALIDA - GRAFICA
-import matplotlib.pyplot as plt
+
 plt.figure(1)
 plt.plot(t,u0)
 

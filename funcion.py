@@ -26,6 +26,9 @@ como parámetros que se definen entre paréntesis en la declaración de la funci
 parámetros como si fuesen variables
  '''
 
+
+
+
 def bienvenidos(nombre):
         print('¡Bienvenido a Python', nombre + '!')
         return
@@ -59,10 +62,12 @@ Para ello el objeto a devolver debe escribirse detrás de la palabra reservada r
 Si no se indica ningún objeto, la función no devolverá nada. '''
 
 def area_triangulo(base, altura):
-    return base * altura / 2
+    area=base * altura / 2
+    return area
 
 area=area_triangulo(2,3)
 print(area)
+print(type(area))
 
 '''
 Puede devolver mas de un valor 
@@ -70,13 +75,13 @@ Puede devolver mas de un valor
 
 def rectangulo(base,altura):
        area=base*altura
-       perimetro=2*area+2*altura
+       perimetro=2*base+2*altura
        return area,perimetro
        
 
 a,p=rectangulo(2,2) 
-print(a)
-print(p)    
+print("el area es :",a)
+print("el perimetro es:",p)    
 
 '''
 Pasar un número indeterminado de argumentos
@@ -89,14 +94,15 @@ que se asocia al parámetro.
 se pasa el número variable de argumentos por pares nombre = valor, separados por comas. Los
 argumentos se guardan en un diccionario que se asocia al parámetro.
 '''
-
+'''
 def menu(*platos):
-    print('Hoy tenemos: ', end='')
+    print('Hoy tenemos: ', end=' ')
     for plato in platos:
           print(plato, end=', ')
 
 menu('pasta', 'pizza', 'ensalada')
-
+'''
+print(' ')
 '''
 Otra manera de hacerlo seria con listas o tuplas 
 '''
@@ -106,9 +112,9 @@ def menu1(comidas):
             print(plato)
             
 
-comidas=('pasta','pizza','ensalada')      
+comidas=['pasta','pizza','ensalada']      
 menu1(comidas)
-
+print(type(comidas))
 
 '''
 Ámbito de los parámetros y variables de una función
@@ -126,9 +132,9 @@ def bienvenida(nombre):
     lenguaje='Python'
     print('¡Bienvenido a', lenguaje, nombre + '!')
           
-bienvenida("Sebastian")
+#bienvenida("Sebastian")
 
-#print(lenguaje)   #Me trira un erros porque lenguaje solo existe entro de la funcion 
+#print(lenguaje)   #Me tira un erros porque lenguaje solo existe entro de la funcion 
 
 '''por ejemplo :
 
@@ -149,16 +155,16 @@ función mediante el parámetro asociado afectará al objeto original, siempre y
 primer_curso = ['Matemáticas', 'Física'] #Una lista es mutable 
 print(primer_curso)
 
-def anade_asignatura(curso, asignatura):
-      '''Funcion que me añade una aignatura'''
+def añade_asignatura(curso, asignatura):
+      '''Funcion que me añade una asignatura'''
       curso.append(asignatura)
-      return
+      #return
 
 
-anade_asignatura(primer_curso, 'Química')
+añade_asignatura(primer_curso, 'Química')
 print(primer_curso)
 
-#help(anade_asignatura)
+#help(añade_asignatura)
 
 '''que pasa si paso un tupla ?'''
 '''
@@ -168,6 +174,12 @@ añade_asignatura(otro_curso, 'civica')
 print(otro_curso)
 '''
 
+'''
+ !5=5*4*3*2*1=120
+ !3=3*2*1=6
+ El factorial de un numero negativo no existe
+ el factorial de 0 es igual a 1
+'''
 ''' Ejemplo de una funcion factorial '''
 def factorial(numero):
               if numero<0:
@@ -184,8 +196,8 @@ def factorial(numero):
                     return auxfact
 
 fact=factorial(3)
-print(fact)
-print(factorial(25))
+print(factorial(3))
+print(factorial(5))
 
 '''Factorial usando recursividad '''
 
@@ -195,7 +207,7 @@ def factorialRe(numero):
        elif numero==0:
                     return 1
        else:
-            return numero * factorial(numero-1)
+            return numero * factorialRe(numero-1)
 
 
 print(factorialRe(3))
@@ -211,11 +223,11 @@ de una función, al igual que el resto de los tipos de datos.'''
 def aplica(funcion, argumento):
     return funcion(argumento)
 
-def cuadrado(n):
-       return n*n
+def cuadrado(numero):
+       return numero*numero
 
-def cubo(n):
-       return n**3
+def cubo(numero):
+       return numero**3
 
 print(aplica(cuadrado, 5))
 
@@ -224,14 +236,28 @@ print(aplica(cubo, 5))
 
 ''' Aplicar una función a todos los elementos de una colección iterable (map)
 
-map(f, c) : Devuelve una objeto iterable con los resultados de aplicar la función f a los 
-elementos de la colección c. Si la función f requiere n argumentos entonces deben pasarse n c
-olecciones con los argumentos.Para convertir el objeto en una lista, tupla o diccionario hay que aplicar 
+map(f,c) : Devuelve una objeto iterable con los resultados de aplicar la función f a los 
+elementos de la colección c. Si la función f requiere n argumentos entonces deben pasarse n 
+colecciones con los argumentos.Para convertir el objeto en una lista, tupla o diccionario hay que aplicar 
 explícitamente las funciones list(), tuple() o dic() respectivamente.'''
 
-a=list(map(cuadrado, [1, 2, 3]))
+a=tuple(map(cuadrado, [1, 2, 3]))
 print(a)
+print(type(a))
 
+
+''' Funciones anónimas (lambda)
+Existe un tipo especial de funciones que no tienen nombre asociado y se conocen como funciones
+anónimas o funciones lambda.
+La sintaxis para definir una función anónima es:
+          
+        lambda <parámetros> : <expresión>
+Estas funciones se suelen asociar a una variable o parámetro desde la que hacer la llamada'''
+
+area1 = lambda base, altura : base * altura
+
+
+print(area1(10,10))
 
 
 
