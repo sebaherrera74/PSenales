@@ -19,8 +19,8 @@ plt.figure(figsize=(15,5))
 #plt.plot(t,s,'r')  
 #plt.plot(f,np.real(S), 'r')      #Ojo con esto 
 #plt.plot(f,np.imag(S), 'r')     #ojo con esto 
-plt.stem(t,s, 'r')  
-#plt.plot(f,S, 'r')  
+#plt.stem(t,s, 'r')  
+plt.stem(f,S, 'r')  
 plt.xlabel("Frecuencia [Hz]")
 plt.ylabel("Amplitud")
 #plt.legend()

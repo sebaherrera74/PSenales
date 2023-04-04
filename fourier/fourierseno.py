@@ -4,7 +4,7 @@ import scipy.fft as fourier
 
 
 # Señal seno
-Fs = 100
+Fs = 2000
 f0=30
 t = np.arange(0, 5, step=1./Fs)
 s = np.sin(2.0*np.pi*f0*t)
@@ -17,8 +17,8 @@ S = fourier.fftshift(fourier.fft(s))
 plt.figure(figsize=(15,5))
 #plt.plot(t,s,'r')  
 #plt.plot(f,np.real(S), 'r')      #Ojo con esto 
-plt.plot(f,np.imag(S), 'r')     #ojo con esto 
-#plt.plot(f,S, 'r')  
+#plt.plot(f,np.imag(S), 'r')     #ojo con esto 
+plt.plot(f,S, 'r')  
 plt.xlabel("Frecuencia [Hz]")
 plt.ylabel("Amplitud")
 #plt.legend()

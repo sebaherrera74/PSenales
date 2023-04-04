@@ -3,7 +3,7 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 
-from scipy.fft import fft, fftfreq
+#from scipy.fft import fft, fftfreq
 
 filename = 'mediciones1.csv'
 raw_data = open(filename)
