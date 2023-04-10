@@ -5,11 +5,13 @@ import matplotlib.pyplot as plt
 
 #from scipy.fft import fft, fftfreq
 
-filename = 'medicionesseno.csv'
+filename = '/home/sebastian/Procesamientoseñales/mediciones/medsenoHz.csv'
 raw_data = open(filename)
 print(raw_data)
 data = np.loadtxt(raw_data, delimiter=",",skiprows=11)
 print(type (data))
+#print(data)
+
 
 print(data.shape)
 fila,columna=data.shape
@@ -19,9 +21,11 @@ print(data.size)
 #print(data[0:10000,0])
 x=data[0:10000,0]
 #x=x*2e-8
-#print(x)
-print(data[0:20000,1])
+print(x)
+#print(data[0:10000,1])
 y=data[0:10000,1]
+print(y)
+
 plt.title('Mediciones En onda seno')
 plt.xlabel('Muestras')
 plt.ylabel('MiliVolts')
