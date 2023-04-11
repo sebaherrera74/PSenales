@@ -1,4 +1,3 @@
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -81,6 +80,8 @@ plt.ylabel('$y[n]$')
 plt.title('$y[n]$')
 plt.grid(True)
 plt.show()
+
+
 '''
 #Writing the h[n] function in terms of delta function
 for i in range(-n,n+1):
