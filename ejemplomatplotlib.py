@@ -1,34 +1,55 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 
-#x=np.arange(1,20,50)
-#print(x)
-#y=x+500
-#print(y)
+x=np.arange(1,20,0.5)
+print(x)
+print(x.size)
+print(len(x))
+
+#np.pi --->valor pi =3,14....
+
+y=x+2
+print(y)
+z=x*x
+
+print(z)
+
 #plt.figure(1,figsize=(6,4.5))  #Tamaño del grafico
- 
-#plt.plot(x,y,'red',marker="o")                  #hasta aqui no me grafica nada si no pomgo show 
-#plt.show()
+plt.figure(1)
+plt.stem(x,y)
+plt.ylim([0,22])
+plt.xlim([0,20])
+plt.xlabel('$valores de x$')
+plt.ylabel('$funcion Y $')
+plt.title('Ecuacion de la recta')
+
+plt.figure(2)
+plt.stem(x,z)
+plt.ylim([-10,400])
+plt.xlim([0,20])
+plt.xlabel('$valores de x$')
+plt.ylabel('$funcion z $')
+plt.title('Ecuacion de parabola')
+
+plt.show()
 
 #genera una señal ruidosa
 #y1=0.01*(np.random.randn(100))
 #print(y1)
-#plt.plot(y1) 
+#plt.plot(y1)
 #plt.show()
 
 
 #plot(x, y, color=’blue’, linestyle=’solid’, marker=’o’, linewidth=1,
 #     markerfacecolor=’blue’,markersize=12).
-
 '''
-   #linestyle
+
     "-" o "solid": línea sólida (es la opción por defecto)
     "--" o "dashed": línea discontinua (la mostrada en In [13])
     "-." o "dashdot": línea que alterna guiones y puntos
     ":" o "dotted": línea de puntos
     "None", " " o "": no muestra nada.
 
-'''
 
 
 x = np.arange(0,100,0.01)
@@ -45,4 +66,6 @@ plt.title('Lab DLS')
 plt.show()
 
 
-# https://interactivechaos.com/es/manual/tutorial-de-matplotlib/la-funcion-plot-estilo-oo 
+# https://interactivechaos.com/es/manual/tutorial-de-matplotlib/la-funcion-plot-estilo-oo
+
+'''

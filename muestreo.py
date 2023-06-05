@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.io.wavfile import read 
+from scipy.io.wavfile import read
 from scipy.io.wavfile import write
 from scipy.signal import resample
 
@@ -19,12 +19,12 @@ plt.grid()
 plt.show()
 
 #Audio(x,rate=fs)
-#Carga el archivowav y muestra la señal continua 
+#Carga el archivowav y muestra la señal continua
 #---------------------------------------------
 print("El número de muestras es: ", len(x))
 print("La frecuencia de muestreo es: ", fs)
 print("La longitud en tiempo es: ", len(x)/fs, "segundos")
-
+print(x)
 range_s=np.max(np.abs(x))
 
 print("rango de la señal: ", range_s)
@@ -32,7 +32,7 @@ print("rango de la señal: ", range_s)
 bits=np.ceil(np.log2(range_s))+1
 print("Número de bits de cuantificación: ", int(bits))
 
-#Probar divindo en 4 como la señal original pierde informacion 
+#Probar divindo en 4 como la señal original pierde informacion
 #Probar Multiplicando por cuatro la señal es la original
 
 x2=resample(x, int(len(x)/16))
@@ -48,10 +48,11 @@ plt.ylabel("Amplitud")
 plt.legend()
 plt.grid()
 plt.show()
-print(x2)
+#print(x2)
+
 amplitude = np.iinfo(np.int16).max
 
-data = x2/amplitude 
-print(data)
+data = x2/amplitude
+#print(data)
 #write("otro.wav",fs2,data)
 

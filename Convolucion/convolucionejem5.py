@@ -24,7 +24,7 @@ h_ = []
 x_ = []
 y_ = []
 n = 7
-es_=[]
+#es_=[]
 
 for i in range(-n,n+10):
     es=0*delta(i)+0*delta(i-1)+delta(i-2)\

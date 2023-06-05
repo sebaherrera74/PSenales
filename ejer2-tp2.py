@@ -1,13 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 #a)#
-f1=0.01
+#f1=0.01
 #b)
 #f1=30/210
 #c)
 #f1=3/2
 #d)
-#f1=3/2*np.pi 
+f1=3/2*np.pi
 #e)
 #f1=62/10
 
@@ -16,7 +16,7 @@ f1=0.01
 #f1=5/2*np.pi
 
 #fs=100
-n=np.arange(1,100,0.1)
+n=np.arange(1,300,1)
 print(n)
 
 
