@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 #from scipy.fft import fft, fftfreq
 
-filename = '/home/sebastian/Procesamientoseñales/mediciones/medsenoHz.csv'
+filename = './mediciones/medsenoHz.csv'
 raw_data = open(filename)
 print(raw_data)
 data = np.loadtxt(raw_data, delimiter=",",skiprows=11)
