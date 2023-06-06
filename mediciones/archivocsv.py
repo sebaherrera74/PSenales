@@ -3,9 +3,9 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 
-#from scipy.fft import fft, fftfreq
+from scipy.fft import fft, fftfreq
 
-filename = 'mediciones1.csv'
+filename = './mediciones/mediciones1.csv'
 raw_data = open(filename)
 print(raw_data)
 data = np.loadtxt(raw_data, delimiter=",",skiprows=11)
@@ -27,14 +27,13 @@ plt.ylabel('MiliVolts')
 plt.plot(x,y)
 plt.show()
 
-'''
-N = 600
+N = 12000
 # sample spacing
-T = 1.0 / 800.0
+T = 1.0 / N
 
 yf = fft(y)
 xf = fftfreq(N, T)[:N//2]
 
 plt.plot(xf, 2.0/N * np.abs(yf[0:N//2]))
+plt.xlim(0, 200)
 plt.show()
-'''

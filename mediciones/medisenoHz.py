@@ -31,7 +31,7 @@ plt.show()
 
 N = 600
 # sample spacing
-T = 1.0 / 800.0
+T = 1.0 / 600
 
 yf = fft(y)
 xf = fftfreq(N, T)[:N//2]
