@@ -34,8 +34,17 @@ N = 600
 T = 1.0 / 600
 
 yf = fft(y)
-xf = fftfreq(N, T)[:N//2]
 
+print(yf)
+print(yf.size)
+aux=np.abs(yf[0:N//2])
+print(aux)
+print(aux.size)
+xf = fftfreq(N, T)[:N//2]
+#print(xf)
+#print(xf.size)
+"""
 plt.stem(xf, 2.0/N * np.abs(yf[0:N//2]))
 plt.xlim(0, 10)
 plt.show()
+"""
