@@ -24,6 +24,8 @@ print(X)
 
 """
 
+"""
+----------------Transformada de Fourier de un Pulso Rectangular
 
 class rect(sym.Function):
     @classmethod
@@ -43,3 +45,4 @@ sym.plot(XW, (w, -30, 30), xlabel=r'$\omega$', ylabel=r'sinc($\omega / 2$)')
 
 
 
+"""
