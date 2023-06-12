@@ -3,38 +3,53 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 
-#from scipy.fft import fft, fftfreq
+from scipy.fft import fft, fftfreq
 
-filename = 'mediciones1.csv'
+filename = './mediciones/mediciones1.csv'
 raw_data = open(filename)
-print(raw_data)
-data = np.loadtxt(raw_data, delimiter=",",skiprows=11)
-print(type (data))
 
-print(data.shape)
-fila,columna=data.shape
-print(fila,columna)
-print(data.size)
-#print(data[1:2])
+data = np.loadtxt(raw_data, delimiter=",",skiprows=11)
+#print(type (data))
+
+#print(data.shape)                  #forma de los datos
+fila,columna=data.shape            #Saco filas y columnas 
+#print(fila,columna)               
+#print(data.size)                   #Cantidad de filas datos en filas xcolumnas 
+
+
 #print(data[0:10000,0])
 x=data[0:10000,0]
 #print(x)
-print(data[0:20000,1])
+
+#print(data[0:10000,1])
 y=data[0:10000,1]
+
+#Grafica de Voltaje en el tiempo
 plt.title('Mediciones 555')
-plt.xlabel('Muestras')
+plt.xlabel('Tiempo')
 plt.ylabel('MiliVolts')
 plt.plot(x,y)
 plt.show()
 
-'''
-N = 600
+
+
+N = 10000
 # sample spacing
-T = 1.0 / 800.0
+T = 1.0 / N
 
 yf = fft(y)
-xf = fftfreq(N, T)[:N//2]
+print(yf)
+print(yf.size)
 
-plt.plot(xf, 2.0/N * np.abs(yf[0:N//2]))
+xf = fftfreq(N, T)#[:N//2]
+print(xf)
+print(xf.size)
+
+
+
+
+
+plt.plot(xf, np.abs(yf))
+plt.xlim(0, 200)
 plt.show()
-'''
+
