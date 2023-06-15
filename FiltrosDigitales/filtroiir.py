@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import scipy.io as sio
 
 # para listar las variables que hay en el archivo
-#io.whosmat('ecg.mat')
+io.whosmat('ecg.mat')
 mat_struct = sio.loadmat('ecg.mat')
 
 ecg_one_lead = np.transpose(mat_struct['ecg_lead'])
