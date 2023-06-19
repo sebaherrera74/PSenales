@@ -15,11 +15,14 @@ fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de l
 ts = 1 / fs                             # tiempo de muestreo
 N = len(data)                           # número de muestras en el archivo de audio
 t = np.linspace(0, N * ts, N)           # vector de tiempo
+
 if len(data.shape) > 1:
     senial = data[:, 0]                 # Si el audio es estereo, se extrae un canal de la pista
 else:
     senial = data
 #senial = senial * 3300.0 / (2 ** 16 - 1)# se escala la señal a mV (considerando un CAD de 16bits y Vref 3.3V)
+
+
 
 
 freq = fft.fftfreq(N, d=1/fs)   # se genera el vector de frecuencias

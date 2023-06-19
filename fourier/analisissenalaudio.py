@@ -5,23 +5,36 @@ from scipy.io import wavfile
 import numpy as np
 import matplotlib.pyplot as plt
 
+<<<<<<< HEAD
 filename = './mediciones/rojo'                       # nombre de archivo
+=======
+filename = './fourier/silbido'                       # nombre de archivo
+>>>>>>> 72f95476498cf1084f17ab3508abb7f22a7c01e5
 fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de la señal
 
 print(fs)
-print(data)
+#print(data)
+
 ts = 1 / fs                             # tiempo de muestreo
 N = len(data)                           # número de muestras en el archivo de audio
-print(N)
+#print(N)
+
 t = np.linspace(0, N * ts, N)           # vector de tiempo
-print(t)
+#print(t)
+
 
 if len(data.shape) > 1:
     senial = data[:, 0]                 # Si el audio es estereo, se extrae un canal de la pista
 else:
     senial = data
 
+<<<<<<< HEAD
 #senial = senial * 3300.0 / (2 ** 16 - 1)# se escala la señal a mV (considerando un CAD de 16bits y Vref 3.3V)
+=======
+#print (senial)
+
+senial = senial * 3300.0 / (2 ** 16 - 1)# se escala la señal a mV (considerando un CAD de 16bits y Vref 3.3V)
+>>>>>>> 72f95476498cf1084f17ab3508abb7f22a7c01e5
 
 
 # Se crea una gráfica
