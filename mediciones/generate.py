@@ -56,5 +56,5 @@ if __name__ == "__main__":
         arr /= numpy.max(numpy.abs(data)) #Divide all your samples by the max sample value
         filename_head, extension = fname.rsplit(".", 1)
         data_resampled = resample( arr, len(data) )
-        wavfile.write('rojo.wav', 10800, data_resampled) #resampling at 16khz
+        wavfile.write('rojo2.wav', 11000, data_resampled) #resampling at 16khz
         print ("File written succesfully !")

@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-filename = './fourier/cello'                       # nombre de archivo
+filename = './mediciones/rojo2'                       # nombre de archivo
 fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de la señal
 
 #-----------Definición de parámetros temporales:
@@ -16,22 +16,22 @@ ts = 1 / fs                             # tiempo de muestreo
 N = len(data)                           # número de muestras en el archivo de audio
 t = np.linspace(0, N * ts, N)           # vector de tiempo
 if len(data.shape) > 1:
-    senial = data[:, 0]                 # Si el audio es estereo, se extrae un canal de la pista 
+    senial = data[:, 0]                 # Si el audio es estereo, se extrae un canal de la pista
 else:
-    senial = data   
-senial = senial * 3300.0 / (2 ** 16 - 1)# se escala la señal a mV (considerando un CAD de 16bits y Vref 3.3V)
+    senial = data
+#senial = senial * 3300.0 / (2 ** 16 - 1)# se escala la señal a mV (considerando un CAD de 16bits y Vref 3.3V)
 
 
 freq = fft.fftfreq(N, d=1/fs)   # se genera el vector de frecuencias
 senial_fft = fft.fft(senial)    # se calcula la transformada rápida de Fourier
 
 # El espectro es simétrico, nos quedamos solo con el semieje positivo
-f = freq[np.where(freq >= 0)]      
+f = freq[np.where(freq >= 0)]
 #senial_fft = senial_fft[np.where(freq >= 0)]
 
 # Se calcula la magnitud del espectro
 senial_fft_mod = np.abs(senial_fft) / N     # Respetando la relación de Parceval
-# Al haberse descartado la mitad del espectro, para conservar la energía 
+# Al haberse descartado la mitad del espectro, para conservar la energía
 # original de la señal, se debe multiplicar la mitad restante por dos (excepto
 # en 0 y fm/2)
 #senial_fft_mod[1:len(senial_fft_mod-1)] = 2 * senial_fft_mod[1:len(senial_fft_mod-1)]
@@ -55,7 +55,7 @@ ax1[1].plot(freq, senial_fft_mod)
 ax1[1].set_xlabel('Frecuencia [Hz]', fontsize=15)
 ax1[1].set_ylabel('Magnitud [V]', fontsize=15)
 ax1[1].set_title('Magnitud de la Respuesta en Frecuencia', fontsize=15)
-#ax1[1].set_xlim([0, 2500])
+ax1[1].set_xlim([-5000, 5000])
 ax1[1].grid()
 
 plt.show()

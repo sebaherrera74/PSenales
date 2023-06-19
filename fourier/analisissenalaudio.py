@@ -1,11 +1,11 @@
-#Analisis temporal de una señal de audio 
+#Analisis temporal de una señal de audio
 # Incluir librerías
 from scipy import signal
 from scipy.io import wavfile
 import numpy as np
 import matplotlib.pyplot as plt
 
-filename = './fourier/chord-G'                       # nombre de archivo
+filename = './mediciones/rojo'                       # nombre de archivo
 fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de la señal
 
 print(fs)
@@ -17,14 +17,14 @@ t = np.linspace(0, N * ts, N)           # vector de tiempo
 print(t)
 
 if len(data.shape) > 1:
-    senial = data[:, 0]                 # Si el audio es estereo, se extrae un canal de la pista 
+    senial = data[:, 0]                 # Si el audio es estereo, se extrae un canal de la pista
 else:
-    senial = data   
+    senial = data
 
-senial = senial * 3300.0 / (2 ** 16 - 1)# se escala la señal a mV (considerando un CAD de 16bits y Vref 3.3V)
+#senial = senial * 3300.0 / (2 ** 16 - 1)# se escala la señal a mV (considerando un CAD de 16bits y Vref 3.3V)
 
 
-# Se crea una gráfica 
+# Se crea una gráfica
 fig1, ax1 = plt.subplots(1, 1, figsize=(20, 10))
 fig1.suptitle("Acorde", fontsize=18)
 
