@@ -5,10 +5,13 @@ import matplotlib.pyplot as plt
 import scipy.io as sio
 
 # para listar las variables que hay en el archivo
-io.whosmat('ecg.mat')
-mat_struct = sio.loadmat('ecg.mat')
+sio.whosmat('./FiltrosDigitales/ecg.mat')
+mat_struct = sio.loadmat('./FiltrosDigitales/ecg.mat')
 
 ecg_one_lead = np.transpose(mat_struct['ecg_lead'])
+
+print(ecg_one_lead)
+print(len(ecg_one_lead))
 samp_frec = 1000 # Hz
 nyq_frec = samp_frec / 2
 
