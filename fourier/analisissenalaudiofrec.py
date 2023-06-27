@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-filename = './mediciones/rojo2'                       # nombre de archivo
+filename = './fourier/bajo'                       # nombre de archivo
 fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de la señal
 
 #-----------Definición de parámetros temporales:
@@ -81,7 +81,7 @@ print(sos_iir_3)
 
 #FIR
 # Proponemos un orden
-N = 1001
+N = 2001
 num_fir_3 = signal.firwin(N, cutoff=1000, window='hamming', pass_zero='lowpass', fs=fs)
 
 #print("Coeficientes del filtro:")
@@ -113,6 +113,9 @@ plt.show()
 senial_fir = signal.lfilter(num_fir_3, 1, senial)
 
 
+ts = 1 / fs                             # tiempo de muestreo
+N = len(senial_fir)   
+
 
 # graficación de las señales Original y filtrada 
 fig1, ax1 = plt.subplots(1, 1, figsize=(15, 10), sharex=True)
@@ -124,15 +127,13 @@ ax1.set_ylabel('Amplitud [mV]', fontsize=12)
 ax1.set_xlabel('Tiempo [s]', fontsize=12)
 ax1.legend(loc="upper right", fontsize=12)
 ax1.set_title('Filtro FIR', fontsize=15)
-ax1.set_xlim([0, 10])
-ax1.set_ylim([-1, 1.5])
+ax1.set_xlim([0, ts*N])
+#ax1.set_ylim([-1, 1.5])
 ax1.grid()
 
 plt.show()
 
 
-ts = 1 / fs                             # tiempo de muestreo
-N = len(senial_fir)   
 
 #Grafica del Espectro 
 freq = fft.fftfreq(N, d=1/fs)   # se genera el vector de frecuencias
