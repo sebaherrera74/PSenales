@@ -16,7 +16,14 @@ N=512
 h = sig.firwin(L, (fc1,fc2), window='hamming', pass_zero='bandstop', fs=Fs)
 freq, H = sig.freqz(h, fs=Fs)
 
+print(h)
+print(len(h))
 
+print(freq)
+print(len(freq))
+
+
+"""
 
 #Probemos si filtra 
 
@@ -63,3 +70,4 @@ ax.set_ylabel("$y[n]$",fontsize=12)
 plt.legend()
 plt.grid()
 plt.show() 
+"""

@@ -9,7 +9,7 @@ Ejemplo de un filto pasabajo con enventanado, y su respuesta al impulso
 
 '''
 
-fc=1000.0 # frec de corte
+fc=300.0 # frec de corte
 fs=8000.0 # frec de muestreo
 Adb=0     # Ganancia del filtro en decibeles
 N = 512   # Numero de puntos de la FFT
@@ -121,7 +121,7 @@ plt.show()
 # señal en el tiempo $
 Tmax=4
 t = np.arange(0,Tmax, 1/fs)
-x = np.sin(2*np.pi*300*t)+np.sin(2*np.pi*3000*t)  #Probar cambiando la frecuenciamas alta
+x = np.sin(2*np.pi*300*t)+np.sin(2*np.pi*1000*t)  #Probar cambiando la frecuencias alta
 X = np.fft.fft(x,N)
 
 # salida del filtro
@@ -131,7 +131,7 @@ Y = np.fft.fft(y,N)  #Transfromada de fourier de esa salida
 #Grafica en el tiempo de la entrada y de la salida 
 
 plt.figure(figsize=(15,5))
-#plt.plot(x[0:500], label="señal de entrada")
+plt.plot(x[0:500], label="señal de entrada")
 plt.plot(y[0:500], linewidth=3, label="señal de salida")
 plt.legend()
 plt.grid()
@@ -140,7 +140,7 @@ plt.show()
 fig,ax = plt.subplots()
 fig.set_size_inches((15,4))
 ax.plot(np.arange(N)/N*fs,20*np.log10(np.abs(X)),'r-',label='entrada al filtro')
-ax.plot(np.arange(N)/N*fs,20*np.log10(np.abs(Y)),'g-',label='salida del filtro')
+ax.plot(np.arange(N)/N*fs,20*np.log10(np.abs(Y)),'b-',label='salida del filtro')
 ax.set_xlim(xmin=0, xmax = fs/2)
 ax.set_ylabel(r'dB',fontsize=22)
 ax.set_xlabel("Frecuencia (Hz)",fontsize=18)
