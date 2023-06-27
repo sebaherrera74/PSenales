@@ -63,6 +63,75 @@ ax1[1].grid()
 
 plt.show()
 
+
+#Implementacion de un filtro
+
+"""
+#IIR
+s = 360
+
+# Se analiza el orden necesario para cumplir los requisitos utilizando un filtro Butterworth
+N, wn = signal.buttord([5, 15], [1, 50], 3, 20, analog=False, fs=fs)
+# Se genera el filtro con el orden calculado
+sos_iir_3 = signal.butter(N, wn, 'bandpass', analog=False, output='sos', fs=fs)
+
+print("Secciones de orden 2:")
+print(sos_iir_3)
+"""
+
+#FIR
+# Proponemos un orden
+N = 1001
+num_fir_3 = signal.firwin(N, cutoff=500, window='hamming', pass_zero='lowpass', fs=fs)
+
+print("Coeficientes del filtro:")
+print(num_fir_3)
+
+# se genera un vector de frecuencias
+f = np.logspace(-1, 3, int(1e3))
+# se analiza la respuesta en frecuencia de ambos filtros
+#f, h_iir_3 = signal.sosfreqz(sos_iir_3, worN=f, fs=fs)
+f, h_fir_3 = signal.freqz(num_fir_3, 1, worN=f, fs=fs)
+
+# se grafican ambas respuestas en frecuencia superpuestas
+fig1, ax1 = plt.subplots(1, 1, figsize=(10, 7), sharex=True)
+#ax1.plot(f, 20*np.log10(abs(h_iir_3)), label='Filtro IIR')
+ax1.plot(f, 20*np.log10(abs(h_fir_3)), label='Filtro FIR')
+#ax1.plot([1, 50], [-20, -20], 'X', label='Requisitos de atenuación')
+ax1.set_ylabel('Ganancia [dB]', fontsize=15)
+ax1.set_xlabel('Frecuencia [Hz]', fontsize=15)
+ax1.grid(which='both')
+ax1.legend(loc="lower right", fontsize=15)
+ax1.set_title('Filtro IIR vs FIR', fontsize=15)
+ax1.set_xscale('log')
+ax1.set_xlim([1, 10000])
+ax1.set_ylim([-80, 10])
+
+plt.show()
+
+
+senial_fir = signal.lfilter(num_fir_3, 1, senial)
+
+# graficación de las señales
+fig1, ax1 = plt.subplots(1, 1, figsize=(15, 10), sharex=True)
+
+
+ax1.plot(t, senial, label='Señal original')
+ax1.plot(t, senial_fir, label='Señal filtrada FIR', color='g')
+ax1.set_ylabel('Amplitud [mV]', fontsize=12)
+ax1.set_xlabel('Tiempo [s]', fontsize=12)
+ax1.legend(loc="upper right", fontsize=12)
+ax1.set_title('Filtro FIR', fontsize=15)
+ax1.set_xlim([0, 3])
+ax1.set_ylim([-1, 1.5])
+ax1.grid()
+
+plt.show()
+
+
+
+
+
 """
 # Se calcula el espectro en potencia
 senial_fft_pot = np.power(senial_fft_mod , 2)
