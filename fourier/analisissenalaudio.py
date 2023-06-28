@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-filename = './mediciones/rojo'                       # nombre de archivo
-#filename = './fourier/silbido'                       # nombre de archivo
+#filename = './mediciones/rojo'                       # nombre de archivo
+filename = './fourier/silbido'                       # nombre de archivo
 
 fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de la señal
 
@@ -36,7 +36,7 @@ senial = senial * 3300.0 / (2 ** 16 - 1)# se escala la señal a mV (considerando
 
 # Se crea una gráfica
 fig1, ax1 = plt.subplots(1, 1, figsize=(20, 10))
-fig1.suptitle("Acorde", fontsize=18)
+fig1.suptitle(filename, fontsize=18)
 
 # Se grafica la señal
 ax1.plot(t, senial, label='Señal de audio', color='blue')

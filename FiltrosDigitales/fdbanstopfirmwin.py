@@ -5,15 +5,15 @@ import scipy.signal as sig
 
 
 
-fc1 =100 # Frecuencia de corte1
+fc1 =400 # Frecuencia de corte1
 fc2=500   #Frecuencia de corte 2 
-Fs =5000 # Frecuencia de muestreo
-L = 1000+1 # Largo del filtro
+Fs =7000 # Frecuencia de muestreo
+L = 2000+1 # Largo del filtro
 
 
 N=512
 
-h = sig.firwin(L, (fc1,fc2), window='hamming', pass_zero='bandstop', fs=Fs)
+h = sig.firwin(L, (fc1,fc2), window='hamming', pass_zero='bandpass', fs=Fs)
 freq, H = sig.freqz(h, fs=Fs)
 
 print(h)
@@ -23,7 +23,7 @@ print(freq)
 print(len(freq))
 
 
-"""
+
 
 #Probemos si filtra 
 
@@ -70,4 +70,3 @@ ax.set_ylabel("$y[n]$",fontsize=12)
 plt.legend()
 plt.grid()
 plt.show() 
-"""

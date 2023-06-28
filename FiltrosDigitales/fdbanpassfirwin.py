@@ -1,14 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy.fft as sfft
+from scipy import fft
 import scipy.signal as sig
 
 
 
 fc1 =100 # Frecuencia de corte1
 fc2=500   #Frecuencia de corte 2 
-Fs =2500 # Frecuencia de muestreo
-L = 500+1 # Largo del filtro
+Fs =5000 # Frecuencia de muestreo
+L = 500+1 # orden del filtro
 N=512
 
 h = sig.firwin(L, (fc1,fc2), window='hamming', pass_zero='bandpass', fs=Fs)
@@ -22,10 +22,41 @@ freq, H = sig.freqz(h, fs=Fs)
 Tmax=4
 t = np.arange(0,Tmax, 1/Fs)
 x = np.sin(2*np.pi*300*t)+np.sin(2*np.pi*1500*t)  #Probar cambiando la frecuenciamas alta
-X = np.fft.fft(x,N)
+
+freq2 = fft.fftfreq(N, d=1/Fs)
+X = fft.fft(x,N)
+senial_fft_modX = np.abs(X) / N 
+
 # salida del filtro
 y=np.convolve(x,h)
-Y = np.fft.fft(y,N)
+Y = fft.fft(y,N)
+senial_fft_modY = np.abs(Y) / N 
+
+# Grafica de Espectros
+
+fig1, ax1 = plt.subplots(1, 2, figsize=(20, 10))
+fig1.suptitle("Espectros de frecuencias", fontsize=18)
+
+#Grafica de la señal temporal y del espectro en frecuencias
+# Se grafica la señal temporal
+ax1[0].plot(freq2, senial_fft_modX)
+ax1[0].set_xlabel('Frecuencia [Hz]', fontsize=15)
+ax1[0].set_ylabel('Magnitud [V]', fontsize=15)
+ax1[0].set_title('Magnitud de la Respuesta en Frecuencia', fontsize=15)
+ax1[1].set_xlim([-3000, 3000])
+ax1[0].grid()
+
+# se grafica la magnitud de la respuesta en frecuencia
+ax1[1].plot(freq2, senial_fft_modY )
+ax1[1].set_xlabel('Frecuencia [Hz]', fontsize=15)
+ax1[1].set_ylabel('Magnitud [V]', fontsize=15)
+ax1[1].set_title('Magnitud de la Respuesta en Frecuencia', fontsize=15)
+ax1[1].set_xlim([-3000, 3000])
+ax1[1].grid()
+
+plt.show()
+
+
 
 #Graficas  
 

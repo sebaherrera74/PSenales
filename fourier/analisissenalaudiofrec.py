@@ -82,7 +82,7 @@ print(sos_iir_3)
 #FIR
 # Proponemos un orden
 N = 2001
-num_fir_3 = signal.firwin(N, cutoff=1000, window='hamming', pass_zero='lowpass', fs=fs)
+num_fir_3 = signal.firwin(N, cutoff=500, window='hamming', pass_zero='lowpass', fs=fs)
 
 #print("Coeficientes del filtro:")
 #print(num_fir_3)
@@ -110,7 +110,7 @@ plt.show()
 
 #Aplico señal al filtro propuesto y se obtiene la señal filtrada
 
-senial_fir = signal.lfilter(num_fir_3, 1, senial)
+senial_fir = signal.lfilter(num_fir_3, 1, senial) #Funcion que me permite aplicar el filtro a la señal y devuelve la señal filtrada
 
 
 ts = 1 / fs                             # tiempo de muestreo
@@ -172,26 +172,4 @@ plt.show()
 
 
 
-"""
-# Se calcula el espectro en potencia
-senial_fft_pot = np.power(senial_fft_mod , 2)
 
-
-# Se detecta la posición de los picos en la FFT
-armonicos,_= signal.find_peaks(senial_fft_pot
-                               ,
-                                 distance=10*N/fs,
-                                 prominence=np.max(senial_fft_pot)/50)
-
-print(armonicos)
-print(len(armonicos))
-
-print(f"La frecuencia fundamental del tono es de:")
-print(f"  f0: {f[armonicos[0]]:.2f}Hz")
-
-print("La frecuencia fundamental de los primeros 5 armónicos es de:")
-for i in range(1, len(armonicos)):
-    print(f"  f{i}: {f[armonicos[i]]:.2f}Hz")
-    if i == 5:
-        break
-"""
