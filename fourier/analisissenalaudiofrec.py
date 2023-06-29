@@ -1,4 +1,5 @@
-#Analisis en frecuencia de una señal de audio
+#Analisis en frecuencia de una señal de audio aplicar un filtro pasabajo a 
+# un archivo .wav
 # Incluir librerías
 from scipy import signal
 from scipy import fft
@@ -7,10 +8,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-filename = './fourier/bajo'                       # nombre de archivo
+filename = './Alarm01'                       # nombre de archivo
 fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de la señal
 
 #-----------Definición de parámetros temporales:
+print(fs)
+print(data)
+print(len(data))
 
 ts = 1 / fs                             # tiempo de muestreo
 N = len(data)                           # número de muestras en el archivo de audio
@@ -68,6 +72,7 @@ plt.show()
 
 """
 #IIR
+
 s = 360
 
 # Se analiza el orden necesario para cumplir los requisitos utilizando un filtro Butterworth
@@ -79,13 +84,15 @@ print("Secciones de orden 2:")
 print(sos_iir_3)
 """
 
+
 #FIR
 # Proponemos un orden
-N = 2001
-num_fir_3 = signal.firwin(N, cutoff=500, window='hamming', pass_zero='lowpass', fs=fs)
+L = 2001 #Orden del filtro 
+num_fir_3 = signal.firwin(L, cutoff=1000, window='hamming', pass_zero='highpass', fs=fs)
 
 #print("Coeficientes del filtro:")
 #print(num_fir_3)
+#print(len(num_fir_3))
 
 # se genera un vector de frecuencias
 f = np.logspace(-1, 3, int(1e3))
@@ -100,7 +107,7 @@ ax1.set_ylabel('Ganancia [dB]', fontsize=15)
 ax1.set_xlabel('Frecuencia [Hz]', fontsize=15)
 ax1.grid(which='both')
 ax1.legend(loc="lower right", fontsize=15)
-ax1.set_title('Filtro IIR vs FIR', fontsize=15)
+ax1.set_title('Filtro FIR', fontsize=15)
 ax1.set_xscale('log')
 ax1.set_xlim([1, 10000])
 ax1.set_ylim([-80, 10])
@@ -168,8 +175,6 @@ ax1[1].set_xlim([-5000, 5000])
 ax1[1].grid()
 
 plt.show()
-
-
 
 
 

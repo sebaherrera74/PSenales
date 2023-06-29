@@ -6,14 +6,14 @@ import scipy.signal as sig
 #Diseño Filtro FIIR usando ventanas, y para verificar la salida del filto usar la
 #convolucion 
 
-fc1 =100 # Frecuencia de corte1
-fc2=500   #Frecuencia de corte 2 
-Fs =5000 # Frecuencia de muestreo en la toma datos 
+fc1 =200 # Frecuencia de corte1
+fc2=600   #Frecuencia de corte 2 
+Fs =3000 # Frecuencia de muestreo en la toma datos 
 L = 500+1 # orden del filtro
 
-N=512
+#N=512
 
-h = sig.firwin(L, (fc1,fc2), window='blackman', pass_zero='bandpass', fs=Fs)
+h = sig.firwin(L, (fc1,fc2), window='hamming', pass_zero='bandpass', fs=Fs)
 freq, H = sig.freqz(h, fs=Fs)
 
 #print(freq)
@@ -26,7 +26,8 @@ freq, H = sig.freqz(h, fs=Fs)
 Tmax=4
 t = np.arange(0,Tmax, 1/Fs)
 x = np.sin(2*np.pi*300*t)+np.sin(2*np.pi*1500*t)  #Probar cambiando la frecuenciamas alta
-
+N=len(x)
+print(N)
 freq2 = fft.fftfreq(N,d=1/Fs)
 X = fft.fft(x,N)  #X[w]
 
@@ -49,7 +50,7 @@ fig1.suptitle("Espectros de frecuencias", fontsize=18)
 ax1[0].plot(freq2, senial_fft_modX)
 ax1[0].set_xlabel('Frecuencia [Hz]', fontsize=15)
 ax1[0].set_ylabel('Magnitud [V]', fontsize=15)
-ax1[0].set_title('Magnitud de la Respuesta en Frecuencia', fontsize=15)
+ax1[0].set_title('Magnitud de la Respuesta en Frecuencia de señal de entrada', fontsize=15)
 ax1[1].set_xlim([-3000, 3000])
 ax1[0].grid()
 
@@ -57,7 +58,7 @@ ax1[0].grid()
 ax1[1].plot(freq2, senial_fft_modY )
 ax1[1].set_xlabel('Frecuencia [Hz]', fontsize=15)
 ax1[1].set_ylabel('Magnitud [V]', fontsize=15)
-ax1[1].set_title('Magnitud de la Respuesta en Frecuencia', fontsize=15)
+ax1[1].set_title('Magnitud de la Respuesta en Frecuencia de señal de salida ', fontsize=15)
 ax1[1].set_xlim([-3000, 3000])
 ax1[1].grid()
 
