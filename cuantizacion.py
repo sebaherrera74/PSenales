@@ -16,21 +16,28 @@ def fxquant(s,bit):
 
 fs, x=read("Alarm01.wav") # carga señal de audio
 #fs, x=read("080EHC_S1_readtext.wav") # carga señal de audio
+#print(len(x.shape) )  #2 canales
+if len(x.shape) > 1:
+    senial = x[:, 0]                 # Si el audio es estereo, se extrae un canal de la pista
+else:
+    senial = x
 
-x=x/np.max(np.abs(x))
+
+senial=senial/np.max(np.abs(senial))
 
 
-x_req=fxquant(x, 2)
+x_req=fxquant(senial, 2)
 
 plt.figure(figsize=(15,5))
-t=np.arange(len(x))/fs
-plt.plot(t,x, label="Señal original",alpha=0.7)#
+t=np.arange(len(senial))/fs
+plt.plot(t,senial, label="Señal original")#,alpha=0.7)#
 #plt.plot(t,x_req, label="Señal re-cuantizada",alpha=0.7)
 plt.xlabel("Tiempo")
 plt.ylabel("Amplitud")
-#plt.legend()
+plt.legend()
 plt.grid()
-
+plt.show()
+"""
 plt.figure(figsize=(15,5))
 t=np.arange(len(x))/fs
 plt.plot(t[0:3200],x[0:3200], label="Señal original",alpha=0.7)
@@ -40,3 +47,4 @@ plt.ylabel("Amplitud")
 #plt.legend()
 plt.grid()
 plt.show()
+"""

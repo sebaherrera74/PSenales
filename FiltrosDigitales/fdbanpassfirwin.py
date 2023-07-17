@@ -8,7 +8,7 @@ import scipy.signal as sig
 
 fc1 =100 # Frecuencia de corte1
 fc2=500   #Frecuencia de corte 2 
-Fs =5000 # Frecuencia de muestreo en la toma datos 
+Fs =2000 # Frecuencia de muestreo en la toma datos 
 L = 500+1 # orden del filtro
 
 N=512
