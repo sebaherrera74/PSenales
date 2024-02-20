@@ -3,12 +3,31 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+#1) 0.07142*sin(0.2375*t+0.8141)
+
+
 # INGRESO parámetros
-frecuencia=39
-w  = 2*np.pi*frecuencia
-fx = lambda t: np.sin(w*t)
+A=0.07142
+fase=0.8141
+
+#frecuencia=39
+w  = 0.2375 #2*np.pi*frecuencia
+fx = lambda t: A*np.sin(w*t+fase)
+
+#2) 0.05027*sin(0.301*t-0.5351)
+# INGRESO parámetros
+A1=0.05027
+fase1=0.5351
+
+
+w1  = 0.301#2*np.pi*frecuencia
+fx1 = lambda t: A1*np.sin(w1*t+fase1)
+ftotal=fx+fx1
+
+
 t0 = 0
-tn = 1
+tn = 200
 n = 1000
 
 # PROCEDIMIENTO
@@ -16,8 +35,11 @@ n = 1000
 dt = (tn-t0)/n
 ti = np.arange(t0,tn,dt)
 
+
+
+
 # señal
-senal = fx(ti)
+senal = ftotal(ti)
 
 
 # SALIDA
