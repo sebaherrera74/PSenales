@@ -72,16 +72,21 @@ y3=data3[0:10000,1]
 Maximo3=np.max(y3)
 print("El valor maximo es :" ,Maximo3)
 
+#Diferentes valores de tension de Drain 
 vd=np.arange(25,45,5)
-print(vd)
+print(vd)            #Imprimo los valores de tension
 
+#Valores maximos de tension de los datos 
 MaximmosV=np.array([Maximo,Maximo1,Maximo2,Maximo3])
-print(MaximmosV)
+print(MaximmosV)    #Imprimo los valores de los maximos (picos)
+
+
 
 plt.title('Simulaciones en SET Vdrain=25mVolts ')
 plt.xlabel('tiempo')
 plt.ylabel('Volts')
 plt.plot(x,y)
+plt.plot(x1,y1)
 
 
 plt.show()
