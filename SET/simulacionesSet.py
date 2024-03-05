@@ -1,5 +1,7 @@
 """Programa que me permite abrir un archivo .txt creado en LTSPICE 
 Aqui estoy abriendo las simulaciones en base a diferentes tensiones de Drain
+
+Graficar usando subplot 
 """
 
 import numpy as np 

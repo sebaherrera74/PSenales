@@ -7,6 +7,7 @@ Graficar usando subplot
 import numpy as np 
 import matplotlib.pyplot as plt
 
+
 from scipy.fft import fft, fftfreq
 
 filename = "./setoscvd25mv.txt"
@@ -87,9 +88,18 @@ fig,ax=plt.subplots(2,2)
 
 
 
-ax[0, 0].title.set_text("Tension Vdrain=25mv")
+
+ax[0,0].title.set_text("Tension Vdrain=25mv")
+ax[0,0].set_xlabel("Time (s)",size=8)
+ax[0,0].set_ylabel("Voltage (volts)", size=8)
+
 ax[0,0].plot(x,y)
+
+
 ax[0, 1].title.set_text("Tension Vdrain=30mv")
+ax[0,1].set_xlabel("Time (s)",size=8)
+ax[0,1].set_ylabel("Voltage", size=8)
+
 ax[1,0].plot(x1,y1)
 ax[1, 0].title.set_text("Tension Vdrain=35mv")
 ax[0,1].plot(x2,y2)
