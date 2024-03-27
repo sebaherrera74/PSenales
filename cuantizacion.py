@@ -37,7 +37,7 @@ plt.ylabel("Amplitud")
 plt.legend()
 plt.grid()
 plt.show()
-"""
+
 plt.figure(figsize=(15,5))
 t=np.arange(len(x))/fs
 plt.plot(t[0:3200],x[0:3200], label="Señal original",alpha=0.7)
@@ -47,4 +47,3 @@ plt.ylabel("Amplitud")
 #plt.legend()
 plt.grid()
 plt.show()
-"""
