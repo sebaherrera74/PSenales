@@ -7,8 +7,9 @@ sr = 2000
 # Intervalo de sampleo
 ts = 1.0/sr
 t = np.arange(0,1,ts)
+print(t)
 
-freq = 10
+freq = 1
 x = 3*np.sin(2*np.pi*freq*t)
 
 #freq = 4
@@ -27,21 +28,21 @@ plt.show()
 
 X = fft(x)
 N = len(X)
-print(N)
+#print(N)
 n = np.arange(N)
-print(n)
+#print(n)
 T = N/sr
 freq = n/T 
-print(freq)
-print(X)
-print(np.abs(X))
+#print(freq)
+#print(X)
+#print(np.abs(X))
 plt.figure(figsize = (12, 6))
 plt.subplot(121)
 
 plt.stem(freq, np.abs(X), 'b',markerfmt=" ", basefmt="-b")
 plt.xlabel('Frecuencia (Hz)')
 plt.ylabel('FFT Amplitud |X(freq)|')
-plt.xlim(0, 100)
+plt.xlim(0, 10)
 plt.title(" Respuesta en frecuencia de Funcion Senoidal")
 
 plt.subplot(122)

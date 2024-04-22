@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 import scipy.fft as sfft
 
 
-fo=1.23          #Frecuencia de la continua
-T=100         #Largo temporal
-Fs = 2       #Frecuencia de muestreo, probar cambiando las FS
+fo=1        #Frecuencia de la continua
+T=1000         #Largo temporal
+Fs = 100   #Frecuencia de muestreo, probar cambiando las FS
 
 t=np.arange(0,T,step=1/Fs)
 

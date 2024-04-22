@@ -12,15 +12,15 @@ import matplotlib.pyplot as plt
 #w0 = np.pi             #--Tasa de oscilacion mas alta
 
 #w0 = 2*np.pi/12
-fx= lambda n: np.cos(n/8)
+fx= lambda n: np.cos(n/8+np.pi/2)
 gx= lambda n: np.cos((np.pi*n)/8)
 n0 = 0
-m =120
+m =1200
 
 
 # PROCEDIMIENTO
 # vector n discreto [n,m)
-n = np.arange(n0,m+1,1)
+n = np.arange(n0,m,1)
 
 # señal
 senal = fx(n)
@@ -35,7 +35,7 @@ print('señal x[n]:')
 print(senal)
 
 # Gráficas
-plt.stem(n, hx)
+plt.plot(n, hx)
 plt.xlabel('n')
 plt.ylabel('señal x[n]')
 '''

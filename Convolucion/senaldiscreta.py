@@ -27,8 +27,8 @@ def escalon(n):
         return 1
     else:
         return 0
-
-X=[]
+"""
+#X=[]
 
 for i in range(0,10):
     aux=(-2)*delta(i)+1*delta(i-1)+5*delta(i-2)\
@@ -40,7 +40,22 @@ print(X)
 plt.stem(n,X)
 plt.show()
 
+"""
+#Crear una funcion en l cual le pase como parametro un arreglo y me cree 
+#una señal discreta en 
 
+def discretFun(array, delta):
+    X=[]
+
+    for i in range(0,10):
+        aux=(-2)*delta(i)+1*delta(i-1)+5*delta(i-2)\
+        +2*delta(i-4)+3*delta(i-5)+(-3)*delta(i-6)
+    X.append(aux)
+    return X
+  
+
+A=discretFun(x,delta)
+print(A)
 
 
 #a=delta(0)

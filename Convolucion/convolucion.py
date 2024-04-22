@@ -34,6 +34,8 @@ for i in range(-n,n+1):
 
 print(es_)
 
+
+
 #Escribo x[n] en la forma de la funcion delta
 for i in range(-n,n+1):
     x = 0.5*delta(i) + 2*delta(i-1)
@@ -81,7 +83,8 @@ plt.ylabel('$y[n]$')
 plt.title('$y[n]$')
 plt.grid(True)
 plt.show()
-'''
+
+"""
 #Writing the h[n] function in terms of delta function
 for i in range(-n,n+1):
     h = delta(i) - delta(i-1) + delta(i-4) + delta(i-5)
@@ -146,4 +149,5 @@ h=np.array(m)
 
 
 conv=np.convolve(h,y)
-print(conv)'''
+print(conv)
+""" 

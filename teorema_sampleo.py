@@ -5,7 +5,7 @@ import time
 
 fsC = 300 #frec de sampleo que imita el 'continuo' cuando mas mejor
 fsD = 30  #frec de sampleo discreta. Como el ejemplo es para una senial de 1hz, segun shanon no se podria recuperar si fsD es menor o igual a 2
-N   = 50
+N   = 400
 
 t   = np.arange(0,N/fsC,1/fsC)
 
@@ -33,11 +33,11 @@ ln2, =plt.plot([],[],'b-')
 ln3, =plt.plot([],[],'g-',linewidth=10,alpha=0.5)
 
 signalF      = 1
-signalFExtra = 40+35
+signalFExtra = 1
 
 def signal(n):
-    return [5,2,8][int(n*fsD)%3] 
- #   return np.sin(2*np.pi*n*signalF) + 0.3 * np.sin(2*np.pi*n*signalFExtra)
+  #  return [5,2,8][int(n*fsD)%3] 
+    return np.sin(2*np.pi*n*signalF) + 0.3 * np.sin(2*np.pi*n*signalFExtra)
 
 def interpolate(timeC, x, B):
     y=[]
@@ -72,11 +72,10 @@ def update(n):
 #
     s3=interpolate(t[:n],s1[:nd],fsD/2)
     ln3.set_data(t[0:len(s3)],s3)
-##
-#    fft=np.abs ( 1/N*np.fft.fft(s2 ))**2
-#    fftAxe.set_ylim ( 0 ,np.max(fft)+0.01)
-#    fftAxe.set_xlim ( 0 ,fsC/2 )
-#    fftLn.set_data ( (fsC/N )*fsC*t ,fft)
+    fft=np.abs ( 1/N*np.fft.fft(s2 ))**2
+    fftAxe.set_ylim ( 0 ,np.max(fft)+0.01)
+    fftAxe.set_xlim ( 0 ,fsC/2 )
+    fftLn.set_data ( (fsC/N )*fsC*t ,fft)
     return ln1, ln2, ln3, fftLn
 
 

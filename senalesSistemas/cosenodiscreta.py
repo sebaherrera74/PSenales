@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 # INGRESO - parámetros
 N=20   #Periodo
 #w0=0
-#w0=2*np.pi/N
+w0=2*np.pi/N
 #w0=22*np.pi/N
 #w0=2*np.pi           #igual a w0=0
-w0=2*np.pi*4.576    #Ejemplo de que una señal no es peridodica cuando f0 no es racional
+#w0=2*np.pi*4.576    #Ejemplo de que una señal no es peridodica cuando f0 no es racional
 #w0 = np.pi/12
 #w0 = np.pi/4
 #w0 = np.pi/2

@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # INGRESO - parámetros
-w0 = 2*np.pi/12
+w0 = 2*np.pi/100
 fx = lambda n: np.sin(w0*n)
 n0 = 0
-m = 20
+m = 100
 
 # PROCEDIMIENTO
 # vector n discreto [n,m)
