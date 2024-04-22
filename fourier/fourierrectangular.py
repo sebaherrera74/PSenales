@@ -1,28 +1,38 @@
+from scipy import signal 
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy.fft
+from scipy.fftpack import fft
 
 
-# Señal coseno
-Fs = 100          #Cambiar los valores de la frecuencia y observar
-t = np.arange(0, 5, step=1./Fs) #Aqui defino la cantidad de muestras
-s = np.zeros_like(t)
-s[np.abs(t)<2] = 1
 
-# Se crean las frecuencias y se les hace el shift
-f = scipy.fft.fftshift(scipy.fft.fftfreq(n=len(s), d=1/Fs))
-S = scipy.fft.fftshift(scipy.fft.fft(s))
-#print (f)
-#print(S)                          #Me imprime los valores conplejos de la transformada de Fourier
 
-plt.figure(figsize=(15,5))
-#plt.plot(t,s,'r')  
-#plt.plot(f,np.real(S), 'r')      #Ojo con esto 
-#plt.plot(f,np.imag(S), 'r')     #ojo con esto 
-#plt.stem(t,s, 'r')  
-plt.stem(f,S, 'r')  
-plt.xlabel("Frecuencia [Hz]")
-plt.ylabel("Amplitud")
-#plt.legend()
-plt.grid()
+Fs = 100     #Cambiar los valores de la frecuencia y observar
+t = np.linspace(0, 1, Fs*100, endpoint=False)  
+print(t)
+s=signal.square(2*np.pi*Fs*t,1) 
+
+plt.plot(t,s,'r')  
+#plt.ylim(-2, 2)
 plt.show()
+
+n = len(s)     #Explicar aqui que hace len 
+print (n)
+
+freqz            = np.fft.fftfreq(n,1/(Fs*100))
+freqz            = freqz[range(n//2)]
+
+x_1_spectrum     = fft(s)
+x_1_abs_spectrum = (2.0/n)*np.abs(x_1_spectrum)
+x_1_abs_spectrum = x_1_abs_spectrum[range(n//2)]
+
+
+#Ahora graficamos el espectro
+plt.figure(figsize=(10,6))
+plt.plot(freqz,x_1_abs_spectrum)
+
+plt.grid()
+plt.xlabel("Frecuencia[Hz]")
+plt.ylabel("Magnitud")
+plt.legend(["Entrada X1","Salida Y1"])
+plt.show()
+

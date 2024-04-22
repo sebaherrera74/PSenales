@@ -4,7 +4,7 @@ import numpy as np
 from scipy.fftpack import fft, ifft
 import pandas as pd
 
-df = pd.read_csv('./fourier/dataexport.csv',delimiter=',', parse_dates=[1])
+df = pd.read_csv('Psenales/fourier/dataexport.csv',delimiter=',', parse_dates=[1])
 
 df.rename(columns={'Timestamp (Hour Ending)':'hour','Demand Forecast (MWh)':'demand'},inplace=True)
 plt.figure(figsize = (12, 6))

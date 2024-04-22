@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-#filename = './mediciones/rojo'                       # nombre de archivo
-filename = './fourier/silbido'                       # nombre de archivo
+filename = 'PSenales/fourier/bajo'                       # nombre de archivo
+#filename = './fourier/silbido'                       # nombre de archivo
 
 fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de la señal
 

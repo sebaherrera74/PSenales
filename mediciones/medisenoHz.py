@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from scipy.fft import fft, fftfreq
 
-filename = "./mediciones/medsenoHz.csv"
+filename = "PSenales/mediciones/medsenoHz.csv"
 raw_data = open(filename)
 print(raw_data)
 data = np.loadtxt(raw_data, delimiter=",",skiprows=11)
@@ -43,8 +43,7 @@ print(aux.size)
 xf = fftfreq(N, T)[:N//2]
 #print(xf)
 #print(xf.size)
-"""
+
 plt.stem(xf, 2.0/N * np.abs(yf[0:N//2]))
 plt.xlim(0, 10)
 plt.show()
-"""
