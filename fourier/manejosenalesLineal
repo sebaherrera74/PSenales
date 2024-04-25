@@ -9,7 +9,7 @@ def lineal_system_example(x):
 
 
 #Ejemplo de un sistema lineal
-f = 10 #En Hz
+f = 10#En Hz
 tmin = 0.0
 tmax = 1.0
 #Por ejemplo samplemosla a 400 Hz para tener 400 puntos.
@@ -18,7 +18,7 @@ x_1 = np.sin(2*np.pi*f*t)
 y_1 = lineal_system_example(x_1)
 
 #Nos fijamos que sean del mismo tipo.
-print(type(x_1))
+print(len(x_1))
 print(type(y_1))
 
 plt.figure(figsize=(10,6))
@@ -39,7 +39,7 @@ plt.show()
 n = len(x_1)     #Explicar aqui que hace len 
 print (n)
 
-freqz            = np.fft.fftfreq(n,1/400)
+freqz            = np.fft.fftfreq(n,1/n)
 freqz            = freqz[range(n//2)]
 
 x_1_spectrum     = fft(x_1)
@@ -73,7 +73,7 @@ x_2 = np.sin(2*np.pi*f*t)
 y_2 = lineal_system_example(x_2)
 
 #Nos fijamos que sean del mismo tipo.
-print(type(x_2))
+print(len(x_2))
 print(type(y_2))
 
 #Graficamos la forma de onda.

@@ -5,12 +5,12 @@ import funciones as fc
 
 
 
-#Ejemplo de un sistema lineal
+#
 f = 10 #En Hz
-f2=20
+f2= 20
 tmin = 0.0
 tmax = 1.0
-#Por ejemplo samplemosla a 400 Hz para tener 400 puntos.
+
 t   = np.linspace(tmin,tmax,400)
 x_1 = np.sin(2*np.pi*f*t)
 x_2 = np.sin(2*np.pi*f2*t)
@@ -24,7 +24,7 @@ plt.ylabel("Amplitud[V]")
 plt.legend(["Entrada X1","Entrada X2"])
 plt.show()
 
-rv = fc.plot_spectrum(t,x_1,x_2)
+rv = fc.plot_spectrum(x_1,x_2)
 
 
 x_3=np.concatenate((x_1,x_2))
@@ -41,7 +41,7 @@ plt.ylabel("Amplitud[V]")
 plt.legend(["x_3"])
 plt.show()
 
-rv = fc.plot_spectrum(t1,x_3,x_3)
+rv = fc.plot_spectrum(x_3,x_3)
 
 x_4=np.concatenate((x_2,x_1))
 
@@ -53,6 +53,6 @@ plt.ylabel("Amplitud[V]")
 plt.legend(["x_4"])
 plt.show()
 
-rv1 = fc.plot_spectrum(t1,x_4,x_4)
+rv1 = fc.plot_spectrum(x_4,x_4)
 
 
