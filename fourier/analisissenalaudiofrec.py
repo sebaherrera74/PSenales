@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-filename = "PSenales/fourier/bajo"                       # nombre de archivo
+filename = "PSenales/Alarm01"                       # nombre de archivo
 fs, data = wavfile.read(f'{filename}.wav') # frecuencia de muestreo y datos de la señal
 
 #-----------Definición de parámetros temporales:

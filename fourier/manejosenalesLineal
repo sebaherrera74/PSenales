@@ -14,8 +14,15 @@ tmin = 0.0
 tmax = 1.0
 #Por ejemplo samplemosla a 400 Hz para tener 400 puntos.
 t   = np.linspace(tmin,tmax,400)
+
+#x=amplitud*seno(frecuencia*tiempo+fase)
+#matlab arreglo tiempo ---> transfro 
 x_1 = np.sin(2*np.pi*f*t)
+#print(t)
+#print(x_1)
+
 y_1 = lineal_system_example(x_1)
+#print(y_1)
 
 #Nos fijamos que sean del mismo tipo.
 print(len(x_1))
@@ -43,8 +50,12 @@ freqz            = np.fft.fftfreq(n,1/n)
 freqz            = freqz[range(n//2)]
 
 x_1_spectrum     = fft(x_1)
+
+
 x_1_abs_spectrum = (2.0/n)*np.abs(x_1_spectrum)
 x_1_abs_spectrum = x_1_abs_spectrum[range(n//2)]
+
+
 
 y_1_spectrum     = fft(y_1)
 y_1_abs_spectrum = (2.0/n)*np.abs(y_1_spectrum)
@@ -73,8 +84,8 @@ x_2 = np.sin(2*np.pi*f*t)
 y_2 = lineal_system_example(x_2)
 
 #Nos fijamos que sean del mismo tipo.
-print(len(x_2))
-print(type(y_2))
+#print(len(x_2))
+#print(type(y_2))
 
 #Graficamos la forma de onda.
 plt.figure(figsize=(10,6))
@@ -85,6 +96,7 @@ plt.xlabel("Tiempo[s]")
 plt.ylabel("Amplitud[V]")
 plt.legend(["Entrada X2","Salida Y2"])
 plt.show()
+
 
 #Cantidad de muestras de la señal.
 n = len(x_2)
@@ -109,6 +121,7 @@ plt.xlabel("Frecuencia[Hz]")
 plt.ylabel("Magnitud")
 plt.legend(["Entrada X2","Salida Y2"])
 plt.show()
+
 
 #Linealidad de las salida
 # Y(n) = T(X1(n)) + T(X2(n))

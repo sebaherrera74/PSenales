@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from scipy.fft import fft, fftfreq
 
-filename = './mediciones/mediciones1.csv'
+filename = 'PSenales/mediciones/mediciones1.csv'
 raw_data = open(filename)
 
 data = np.loadtxt(raw_data, delimiter=",",skiprows=11)
@@ -50,6 +50,6 @@ print(xf.size)
 
 
 plt.plot(xf, np.abs(yf))
-plt.xlim(0, 200)
+#plt.xlim(0, 200)
 plt.show()
 

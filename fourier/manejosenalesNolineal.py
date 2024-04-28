@@ -18,7 +18,7 @@ def plot_time_signal(t,x,y):
     plt.legend(["Entrada","Salida"])
     plt.show()
     
-def plot_spectrum(t,x,y):
+def plot_spectrum(x,y):
    #Graficamos el espectro de la señal
     n = len(x)
     freqz            = np.fft.fftfreq(n,1/400)
@@ -46,7 +46,7 @@ def plot_spectrum(t,x,y):
 
 #Ejemplo de un sistema No lineal
 f_1  = 10 #En Hz
-f_2  = 15 #En Hz
+f_2  = 20 #En Hz
 tmin = 0.0
 tmax = 1.0
 #Por ejemplo samplemosla a 400 Hz para tener 400 puntos.
@@ -54,18 +54,21 @@ tmax = 1.0
 t   = np.linspace(tmin,tmax,400)
 x_1 = np.sin(2*np.pi*f_1*t)
 y_1 = non_lineal_system_example(x_1)
+
+
 x_2 = np.sin(2*np.pi*f_2*t)
 y_2 = non_lineal_system_example(x_2)
 
 #Hacemos el plot de la señal X1
 plot_time_signal(t,x_1,y_1)
-rv = plot_spectrum(t,x_1,y_1)
+
+rv = plot_spectrum(x_1,y_1)
 
 #Hacemos el plot de la señal X2
 plot_time_signal(t,x_2,y_2)
-rv = plot_spectrum(t,x_2,y_2)
+rv = plot_spectrum(x_2,y_2)
 
 
 #Hacemos el plot de la señal T(X1) + T(X2)
 plot_time_signal(t,x_1 + x_2,y_1 + y_2)
-rv = plot_spectrum(t,x_1 + x_2 ,y_1 + y_2)
+rv = plot_spectrum(x_1 + x_2 ,y_1 + y_2)
