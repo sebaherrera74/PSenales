@@ -35,8 +35,7 @@ plt.show()
 
 
 #Analisis de la señal en el dominio de la frecuencia 
-#entra una señal senoidal a un sistema lineal
-#Cantidad de muestras de la señal.
+
 n = len(x)     #Explicar aqui que hace len 
 print (n)
 
