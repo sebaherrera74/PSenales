@@ -64,7 +64,7 @@ N = 400 #Numero de puntos de la fft
 f, t, Sxx = signal.spectrogram(x_4,fs=800,window = signal.blackman(N))#,nfft=N)
 #plt.pcolormesh(t, f,10*np.log10(Sxx)) # Espectro de magnitud en dB
 plt.pcolormesh(t, f,Sxx) #Espectro de Magnitud Lineal
-plt.ylim(0,150)
+#plt.ylim(0,150)
 plt.ylabel('Frecuencia [Hz]')
 plt.xlabel('Tiempo [seg]')
 plt.title('Espectrograma usando scipy.signal',size=16);

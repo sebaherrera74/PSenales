@@ -4,17 +4,20 @@ import scipy.fft as fourier
 
 
 # Señal coseno
-Fs = 1000  
+Fs = 1000
 f=100
 ampitud=1                      
 t = np.arange(0, 999, step=1)
-print(t)
-s = ampitud*np.cos(2.0*np.pi*(f/Fs)*t)
+#print(t)
+s = ampitud*np.cos(2.0*np.pi*(f/Fs)*t) #señal cosenoidal 
 plt.plot(t,s,'r')
 plt.show()
-f = np.arange(-999, 0, step=1)
-#f = fourier.fftfreq(n=len(s))
+
+
+#f = np.arange(0, 999, step=1) #vector frecuencia 
+f = fourier.fftfreq(n=len(s),d=1/Fs)
 print(f)
+
 S =fourier.fft(s)
 #print (f)
 #print(S)                         #Me imprime los valores conplejos de la transformada de Fourier

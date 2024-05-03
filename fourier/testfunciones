@@ -2,20 +2,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.fftpack import fft 
 import funciones as fc
-
-
+"""
+ejemplo de 2 señales seniodales concatendas y sus respectivos esprectos, utilizo 
+libreria con funciones auxiliares
+"""
 
 #
-f = 10 #En Hz
+f = 10#En Hz
 f2= 20
-tmin = 0.0
-tmax = 1.0
+Fs=400 #Fecuencia de muestreo(sample)
+x_1 , t = fc.Coseno(f,10,0,Fs)
+x_2, t  = fc.Senoidal(f2,1,0,Fs)
 
-t   = np.linspace(tmin,tmax,400)
-x_1 = np.sin(2*np.pi*f*t)
-x_2 = np.sin(2*np.pi*f2*t)
 print(len(x_1))
 print(len(x_2))
+fc.plot_2Signaltime(t,x_1,x_2)
+#fc.plot_Signaltime(t,x_1)
+#fc.plot_Signaltime(t,x_2)
+
+"""
 plt.plot(t,x_1)
 plt.plot(t,x_2)
 plt.grid()
@@ -23,16 +28,24 @@ plt.xlabel("Tiempo[s]")
 plt.ylabel("Amplitud[V]")
 plt.legend(["Entrada X1","Entrada X2"])
 plt.show()
+#rv = fc.plot_spectrumSignal(x_2) 
 
-rv = fc.plot_spectrum(x_1,x_2)
+
+
+rv = fc.plot_spectrum(x_1,x_2) #ME HACE UNA GRAFICA DEL ESPECTRO DE LAS 2 SEÑALES
 
 
 x_3=np.concatenate((x_1,x_2))
+print(len(x_3))
+
+
 
 tmin1 = 1
 tmax1 = 2.0
+
 #Por ejemplo samplemosla a 400 Hz para tener 400 puntos.
 t1   = np.linspace(tmin1,tmax1,800)
+
 plt.plot(t1,x_3)
 
 plt.grid()
@@ -54,5 +67,5 @@ plt.legend(["x_4"])
 plt.show()
 
 rv1 = fc.plot_spectrum(x_4,x_4)
-
+"""
 
