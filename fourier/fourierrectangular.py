@@ -9,7 +9,7 @@ from scipy.fftpack import fft
 Fs = 100     #Cambiar los valores de la frecuencia y observar
 t = np.linspace(0, 1, Fs*100, endpoint=False)  
 print(t)
-s=signal.square(2*np.pi*Fs*t,1) 
+s=signal.square(2*np.pi*Fs*t,0.5) 
 
 plt.plot(t,s,'r')  
 #plt.ylim(-2, 2)

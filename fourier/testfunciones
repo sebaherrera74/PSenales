@@ -10,14 +10,18 @@ libreria con funciones auxiliares
 #
 f = 10#En Hz
 f2= 20
-Fs=400 #Fecuencia de muestreo(sample)
+Fs=1000 #Fecuencia de muestreo(sample)
 x_1 , t = fc.Coseno(f,10,0,Fs)
 x_2, t  = fc.Senoidal(f2,1,0,Fs)
+x_3=np.concatenate((x_1,x_2))
+t1=np.linspace(0,2,len(t)*2)
+print(len(t1))
+print(len(x_3))
 
 print(len(x_1))
 print(len(x_2))
 fc.plot_2Signaltime(t,x_1,x_2)
-#fc.plot_Signaltime(t,x_1)
+fc.plot_Signaltime(t1,x_3)
 #fc.plot_Signaltime(t,x_2)
 
 """

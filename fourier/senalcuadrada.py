@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 from scipy.fft import fft, fftfreq
 
-filename = "PSenales/fourier/cuadrada.txt"
+filename = "./fourier/cuadrada.txt"
 
 raw_data = open(filename)
 #print(raw_data)
