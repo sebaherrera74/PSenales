@@ -22,16 +22,16 @@ con nuestra señal de entrada.
 
 '''
 
-fc = 1000 # Frecuencia de corte
+fc = 300 # Frecuencia de corte
 Fs = 8000 # Frecuencia de muestreo
-L = 2000+1 # Largo del filtro(Orden del filtro )
+L = 1000+1 # Largo del filtro(Orden del filtro )
 
 N=512
 h = sig.firwin(L, fc, window='hamming', pass_zero='lowpass', fs=Fs)
 
 #print(h)
 #print(len(h))
-freq, H = sig.freqz(h, fs=Fs)
+freq, H = sig.freqz(h)# fs=Fs)
 
 #print(freq)
 #print(H)
@@ -43,13 +43,13 @@ plt.show()
 
 
 
-
+"""
 #Probemos si filtra
 
 # señal en el tiempo $
 Tmax=4
 t = np.arange(0,Tmax, 1/Fs)
-x = np.sin(2*np.pi*300*t)+np.sin(2*np.pi*3000*t)  #Probar cambiando la frecuenciamas alta
+x = np.sin(2*np.pi*300*t)+np.sin(2*np.pi*1000*t)  #Probar cambiando la frecuenciamas alta
 X = np.fft.fft(x,N)
 # salida del filtro
 y=np.convolve(x,h)
@@ -85,4 +85,4 @@ plt.plot(y[0:2000], linewidth=3, label="señal de salida")
 plt.legend()
 plt.grid()
 plt.show()
-
+"""

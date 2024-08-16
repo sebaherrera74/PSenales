@@ -12,7 +12,7 @@ arregloY =np.arange(0.0, 20.0,1)
 arregloX =np.arange(0.0, 20.0,1)
 #print(arregloY)
 
-n = np.arange(0, 40, step=2/Fs)
+n = np.arange(0, 40, step=1/Fs)
 x_n = np.cos(2*np.pi*f0*Ts*n)
 
 x_n_1 = np.cos(2*np.pi*f0*Ts*(n-1))
@@ -62,7 +62,7 @@ plt.figure(figsize=(15,5))
 
 
 plt.plot(n,x_n, 'r')
-plt.plot(n,x_n_1, 'black')
+#plt.plot(n,x_n_1, 'black')
 
 plt.plot(n,y_n, 'b')
 plt.xlabel("tiempo")

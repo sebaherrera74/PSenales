@@ -21,7 +21,8 @@ BW=200    # Ancho de banda en la banda de transicion
 wc = 2*np.pi*fc/fs  
 
 # 2. ancho de banda  normalizado en radianes
-bwn=2*np.pi*BW/fs                      
+bwn=2*np.pi*BW/fs
+print(bwn)                    
 
 # 3. orden estimado del filtro
 M=int(4/bwn)  
