@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pyabf
-abf = pyabf.ABF("./patch/2022_06_22_004.abf")
+abf = pyabf.ABF("./patch/2023_10_18_000.abf")
 abf.setSweep(0,0)
 print(abf.sweepY) # displays sweep data (ADC)
 print(abf.sweepX) # displays sweep times (seconds)
