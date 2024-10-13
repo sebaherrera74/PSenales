@@ -34,14 +34,3 @@ results = pd.DataFrame({
     'Secant': secant_iterations })
 print(results)
 
-#Formula p calcular el orden de convergencia 
-def estimate_convergence(iterations):
-    p = []
-    for i in range(2, len(iterations)):
-        p_i = np.log(abs(iterations[i] - np.sqrt(2)) / abs(iterations[i-1] - np.sqrt(2))) / \
-              np.log(abs(iterations[i-1] - np.sqrt(2)) / abs(iterations[i-2] - np.sqrt(2)))
-        p.append(p_i)
-    return p
-
-secant_order = estimate_convergence(secant_iterations)
-print(secant_order)

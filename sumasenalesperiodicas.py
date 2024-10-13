@@ -1,12 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
+#programa para sumar señales senoidles de diferentes frecuencias
+#y cargarlo en el generador de funciones
+
+
 
 f1=25
 f2=50
 T=1/10
 
-t = np.linspace(T,1,num=100*f2)
+t = np.linspace(T,1,num=10*f2)
 
 print(t)
 print(type(t))

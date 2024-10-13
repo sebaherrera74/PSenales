@@ -87,3 +87,4 @@ orders = pd.DataFrame({
 combined_results = pd.concat([results, orders], axis=1)
 combined_results
 """
+

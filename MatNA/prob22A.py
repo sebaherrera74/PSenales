@@ -17,8 +17,8 @@ def bisection(a, b, tol, max_iter):
     iterations = []
     for n in range(max_iter):
         c = (a + b) / 2
-        print(c)
-        print(abs(f(c)))
+        #print(c)
+        #print(abs(f(c)))
         iterations.append(c)
         if abs(f(c)) < tol or abs(b - a) / 2 < tol: #planteo esta condiciones para salir de la iteracion 
             break
@@ -34,7 +34,7 @@ max_iter = 50
 
 # Run each method
 bisection_iterations = bisection(1, 2, tol, max_iter)
-print(bisection_iterations)
+#print(bisection_iterations)
 
 # Creo una tabla con los resultados 
 results = pd.DataFrame({
@@ -42,14 +42,15 @@ results = pd.DataFrame({
     })
 print(results)
 
-#Formula p calcular el orden de convergencia 
-def estimate_convergence(iterations):
-    p = []
-    for i in range(2, len(iterations)):
-        p_i = np.log(abs(iterations[i] - np.sqrt(2)) / abs(iterations[i-1] - np.sqrt(2))) / \
-              np.log(abs(iterations[i-1] - np.sqrt(2)) / abs(iterations[i-2] - np.sqrt(2)))
-        p.append(p_i)
-    return p
+error=[]
+valor_real=np.sqrt(2)
+print(valor_real)
+#valores_errores=np.array
+for n in range(len(bisection_iterations)):
+    #print(n)
+    resultado=abs(bisection_iterations[n]-valor_real)
+    error.append(resultado)
+    #print(error)
 
-bisection_order = estimate_convergence(bisection_iterations)
-print(bisection_order)
+print(error)
+    
