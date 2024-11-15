@@ -32,12 +32,6 @@ print(coef_p3)
 print(coef_p4)
 print(coef_p5)
 
-
-
-
-
-
-
 # Evaluamos los polinomios ajustados
 x_fit = np.linspace(min(x), max(x), 60)
 print(x_fit)
@@ -65,22 +59,24 @@ plt.show()
 
 # Número de puntos
 n = len(x)
-
+#print(n)
 # Calcular el promedio de y
 y_mean = np.mean(y)
+#print(y_mean)
 
-# Ajuste de un polinomio de grado 5 y convertirlo a la escala original
-p_degree_5 = Polynomial.fit(x, y, 1)
+# Ajuste de un polinomio de grado x
+# Valores predichos con el polinomio de grado x 
+y_pred_degree = p5(x)
 
-# Valores predichos con el polinomio de grado 5
-y_pred_degree_5 = p_degree_5(x)
-
-# 1. Calcular R^2 (coeficiente de determinación) para el polinomio de grado 5
+# 1. Calcular R^2 (coeficiente de determinación) para el polinomio de grado 5x
+#podria armar una funcion para hacer este calculo 
+#Le tendria que pasar un array con los datos obtenidos de y, los predichos 
+#
 ss_total = np.sum((y - y_mean)**2)  # Suma total de cuadrados
-ss_res_degree_5 = np.sum((y - y_pred_degree_5)**2)  # Suma de los residuos al cuadrado para el grado 5
-r_squared_degree_5 = 1 - (ss_res_degree_5 / ss_total)
+ss_res_degree = np.sum((y - y_pred_degree)**2)  # Suma de los residuos al cuadrado para el grado 5
+r_squared_degree = 1 - (ss_res_degree / ss_total)
 
 # 2. Calcular la desviación estándar de los residuos para el polinomio de grado 5
-std_residuals_degree_5 = np.sqrt(ss_res_degree_5 / (n - 5))
+std_residuals_degree = np.sqrt(ss_res_degree / (n ))
 
-print(r_squared_degree_5, std_residuals_degree_5)
+print(r_squared_degree, std_residuals_degree)
